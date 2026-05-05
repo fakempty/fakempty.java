@@ -76,7 +76,7 @@ public class Main {
 
         // --- Task 5 ---
         System.out.println("\n--- Task 5 ---");
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
         Optional<Integer> res5 = numbers.stream()
                 .filter(n -> n % 2 != 0)
                 .reduce((a, b) -> a * b);
@@ -90,9 +90,9 @@ public class Main {
         Person mainP = new Person("Me", Arrays.asList(p1, p2));
 
         List<String> res6 = Stream.of(mainP)
-                .filter(p -> p.friends != null) // Перевірка на null
+                .filter(p -> p.friends != null)
                 .flatMap(p -> p.friends.stream())
-                .map(f -> f.name.toUpperCase()) // Використовуємо поле name об'єкта friend
+                .map(f -> f.name.toUpperCase())
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println(res6);
